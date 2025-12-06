@@ -1,40 +1,39 @@
 # HelloDevOps
 
-Egyszerű .NET 8 alapú webalkalmazás a DevOps házi feladathoz.  
-A projekt célja, hogy egy „Hello World” szintű appon keresztül bemutassa az alap DevOps lépéseket:
+### Hogyan indítható a projekt Dev Containerben?
 
-- kódkészítés
-- verziókövetés (trunk-based development, Git + GitHub)
-- buildelés
-- Docker konténerizálás
-- felhőbe deploy (CD – Cloud)
+1. Telepítsd az alábbiakat:
+    - Docker Desktop (és indítsd el, hogy fusson a Docker engine),
+    - Visual Studio Code,
+    - Dev Containers bővítmény VS Code-hoz (`Dev Containers` – ms-vscode-remote.remote-containers).
 
----
+2. Klónozd a repót, ha még nem tetted meg:
 
-## Követelmények
+   ```bash
+   git clone https://github.com/Petro1027/hello-devops.git
+   cd hello-devops
 
-- .NET 8 SDK
-- Git
-- (opcionális, de a feladathoz szükséges) Docker Desktop
-- (felhő deployhoz) Render.com account vagy más free cloud szolgáltatás
+Nyisd meg a projekt mappát Visual Studio Code-ban  
+(`File → Open Folder...` → válaszd ki a `hello-devops` mappát).
 
-A példák Windows PowerShell környezetre vonatkoznak.
+Nyomd meg a `Ctrl+Shift+P` billentyűket, írd be, hogy  
+**Dev Containers: Reopen in Container**, majd válaszd ki ezt az opciót.
 
----
+A VS Code a `.devcontainer` mappában lévő konfiguráció alapján:
 
-## Projekt felépítése
+- felépíti a Dev Container image-et,
+- elindítja a konténert,
+- és ebben a konténerben nyitja meg újra a projektet.
 
-- `HelloDevOps.sln` – solution fájl
-- `HelloDevOps/HelloDevOps.csproj` – .NET 8 webprojekt
-- `Program.cs` – minimal API, itt van az összes endpoint
-- `Dockerfile` – Docker image build konfiguráció
-- `README.md` – ez a dokumentum
-
----
-
-## Build
-
-A projekt a `HelloDevOps/HelloDevOps.csproj` fájlt tartalmazza.
+A Dev Containerben nyiss egy új terminált (`Terminal → New Terminal`), majd futtasd:
 
 ```bash
-dotnet build .\HelloDevOps\HelloDevOps.csproj
+dotnet build HelloDevOps/HelloDevOps.csproj
+dotnet run --project HelloDevOps/HelloDevOps.csproj
+
+
+Ezután a böngészőben a http://localhost:8080
+ címen éred el az alkalmazást
+
+
+
