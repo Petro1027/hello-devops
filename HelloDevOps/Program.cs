@@ -8,4 +8,6 @@ app.MapGet("/", () => "Hello DevOps from .NET 8! 🚀");
 
 app.MapGet("/health", () => "OK");
 
+app.MapGet("/version", () => "1.0.0");
+
 app.Run();
