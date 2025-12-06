@@ -6,4 +6,6 @@ var app = builder.Build();
 
 app.MapGet("/", () => "Hello DevOps from .NET 8! 🚀");
 
+app.MapGet("/health", () => "OK");
+
 app.Run();
